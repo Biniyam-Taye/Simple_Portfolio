@@ -20,8 +20,8 @@ export function getAssetUrl(pathOrName, fallback = '/images/avatar.jpg') {
     return pathOrName;
   }
 
-  // If already starting with /images/ or public path
-  if (pathOrName.startsWith('/images/') || pathOrName.startsWith('/')) {
+  // If pointing to public /images/ folder
+  if (pathOrName.startsWith('/images/')) {
     return pathOrName;
   }
 
@@ -43,5 +43,5 @@ export function getAssetUrl(pathOrName, fallback = '/images/avatar.jpg') {
   }
 
   // If it points to an image in public folder
-  return `/images/${filename}` || fallback;
+  return filename ? `/images/${filename}` : fallback;
 }

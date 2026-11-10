@@ -1,3 +1,14 @@
+// ── Direct Project Image Imports (Required by Vite for production bundling & Vercel deployment) ──
+import driveLuxImg from '../assets/projects/DriveLux.jpg';
+import hotelImg from '../assets/projects/hotel.jpg';
+import deraraImg from '../assets/projects/derara.png';
+import aiResumeImg from '../assets/projects/ai-resume-builder.png';
+import socialMediaImg from '../assets/projects/social-media-platform.png';
+import foodDeliveryImg from '../assets/projects/full-stack-food-delivery-mern.png';
+import internshipImg from '../assets/projects/ai-powered-internship.png';
+import ecommerceImg from '../assets/projects/e-commerce.png';
+import garageImg from '../assets/projects/garage-management.png';
+
 export const personalInfo = {
   name: "Biniyam Taye",
   role: "Senior Frontend & Full-Stack Developer",
@@ -82,7 +93,7 @@ export const projectsData = [
     category: "3D & Full-Stack",
     description: "DriveLux is a premium luxury car marketplace featuring interactive 3D vehicle visualization with Three.js and secure Stripe payment integration.",
     longDescription: "Built a premium luxury car marketplace using the MERN stack, featuring interactive 3D vehicle visualization with Three.js and secure Stripe payment integration. The platform enhances customer engagement, improves purchase confidence, and delivers a modern, high-end car-buying experience through responsive design and scalable architecture.",
-    image: "src/assets/projects/DriveLux.jpg",
+    image: driveLuxImg,
     tags: ["react", "threejs", "GSAP", "3D", "Web App", "MERN"],
     demoUrl: "https://www.loom.com/share/1f0098a2a7a544df8892ef31412610ab",
     githubUrl: "https://github.com/Biniyam-Taye/Car-House-Website",
@@ -94,7 +105,7 @@ export const projectsData = [
     category: "Full-Stack",
     description: "HotelBooking is a modern, production-ready hotel booking platform using the MERN Stack (MongoDB, Express.js, React, Node.js) with secure Stripe payment integration.",
     longDescription: "Built a modern, production-ready hotel booking platform using the MERN Stack (MongoDB, Express.js, React, Node.js) with secure Stripe payment integration. The platform enables users to browse hotels, check real-time room availability, book rooms, and pay securely online. It includes authentication, booking management, an admin dashboard, responsive design, and a seamless user experience, making it a complete end-to-end hotel reservation solution.",
-    image: "src/assets/projects/hotel.jpg",
+    image: hotelImg,
     tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     demoUrl: "https://www.loom.com/share/ff0a34614bfc4d93931de40096c5ab0e",
     githubUrl: "https://github.com/Biniyam-Taye/Villa-Alpha",
@@ -106,7 +117,7 @@ export const projectsData = [
     category: "Frontend",
     description: "built modern coffee international website for high quality coffe store with modern ui ux design and animations ",
     longDescription: "We designed and developed the complete business website for Derara International Coffee, an Ethiopian coffee import and export company. I handled the full development process, from building the user interface and business pages to implementing the required functionality, optimizing the website for different devices, and deploying it to production. The website is successfully deployed and is actively being used by the business.",
-    image: "src/assets/projects/derara.png",
+    image: deraraImg,
     tags: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Parcel", "Babel"],
     demoUrl: "https://www.loom.com/share/815691df484c4911a3ba35dc3f061b86",
     githubUrl: "https://github.com/Biniyam-Taye/derara-frontend",
@@ -118,7 +129,7 @@ export const projectsData = [
     category: "AI & Full-Stack",
     description: "a modern and interactive AI-powered resume builder that helps users create professional resumes in minutes using AI-powered insights and suggestions.  ",
     longDescription: "Built a full-stack AI-powered Resume Builder using the MERN stack and Google's Gemini API. The platform enables users to create professional, ATS-friendly resumes with AI-generated content, real-time editing, multiple modern templates, live preview, PDF export, and secure authentication. Designed with a responsive UI, scalable REST APIs, and a seamless user experience, helping job seekers build high-quality resumes in minutes. The application is optimized for performance, usability, and maintainability.",
-    image: "src/assets/projects/ai-resume-builder.png",
+    image: aiResumeImg,
     tags: ["React", "Tailwind CSS", "Gemini API", "MongoDB", "Express.js", "Node.js"],
     demoUrl: "https://resume-biniyamtaye.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/AI-Powered-Resume-Builder",
@@ -130,7 +141,7 @@ export const projectsData = [
     category: "Full-Stack",
     description: "this is my favorite project b/c i built it when i was 2nd year student and i learned a lot from it and it made me confident that i can be a full-stack developer. ",
     longDescription: "this project build by technologies react.js, TypeScript, Tailwind CSS, and Supabase. Users can register, log in, create posts, share images, like and comment on posts, and send real-time messages to other users. The platform includes a responsive dark/light mode, real-time updates, image uploads, and secure user authentication.",
-    image: "src/assets/projects/social-media-platform.png",
+    image: socialMediaImg,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     demoUrl: "https://binup.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/Full-stack-social-media-website",
@@ -142,7 +153,7 @@ export const projectsData = [
     category: "Full-Stack",
     description: "a full stack food delivery app with all the features of a modern food delivery platform.",
     longDescription: "This is a full-stack food delivery application built using the MERN stack (MongoDB, Express.js, React, Node.js). It includes features such as user authentication, restaurant listings, menu browsing, order placement, order tracking, and payment integration. The platform is designed to provide a seamless food delivery experience for both customers and restaurants.",
-    image: "src/assets/projects/full-stack-food-delivery-mern.png",
+    image: foodDeliveryImg,
     tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     demoUrl: "https://bini-food-delivery.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/Full-Stack-Food-Delivery-MERN-",
@@ -160,7 +171,7 @@ export const projectsData = [
     category: "AI & Full-Stack",
     description: "A full-stack platform connecting students with internship and freelance opportunities through a LinkedIn-inspired interface.",
     longDescription: "Built a full-stack platform connecting students with internship and freelance opportunities through a LinkedIn-inspired interface. Developed three role-based dashboards for students/freelancers, managers, and supervisors, integrating Google Gemini API for LLM-powered job filtering, candidate discovery, and intelligent opportunity matching. Implemented RESTful APIs, MongoDB data management, authentication, and role-based access control using React.js, Node.js, Express.js, and MongoDB.",
-    image: "src/assets/projects/ai-powered-internship.png",
+    image: internshipImg,
     tags: ["React", "Tailwind CSS", "Gemini API", "MongoDB", "Express.js", "Node.js"],
     demoUrl: "https://student-freelance-and-internship.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/Student-Freelance-and-Internship-Management",
@@ -178,7 +189,7 @@ export const projectsData = [
     category: "Full-Stack",
     description: "A full-stack e-commerce application featuring product browsing, search and filtering, shopping cart management, user authentication, order processing, and an admin dashboard for managing products and orders.",
     longDescription: "Developed a responsive e-commerce platform using MySQL, Express.js, React.js, and Node.js, featuring product browsing, search and filtering, shopping cart management, user authentication, order processing, and an admin dashboard for managing products and orders.",
-    image: "src/assets/projects/e-commerce.png",
+    image: ecommerceImg,
     tags: ["React", "Tailwind CSS", "MySQL", "Express.js", "Node.js"],
     demoUrl: "https://bini-market.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/Full-Stack-Amazon-Clone-2024V",
@@ -195,7 +206,7 @@ export const projectsData = [
     category: "Full-Stack",
     description: "Built a MERN stack application to manage vehicles, customers, repairs, and service records with an intuitive interface and efficient garage operations.",
     longDescription: "Developed a full-stack vehicle garage management application using MongoDB, Express.js, React.js, and Node.js to streamline garage operations, including vehicle registration, customer management, service scheduling, maintenance tracking, repair records, and billing. Implemented RESTful APIs, database management, and a responsive user interface to improve workflow efficiency and simplify vehicle service management.",
-    image: "src/assets/projects/garage-management.png",
+    image: garageImg,
     tags: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     demoUrl: "https://bini-garage.vercel.app/",
     githubUrl: "https://github.com/Biniyam-Taye/Full-Stack-Vehicle-Garage-App",
