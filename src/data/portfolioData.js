@@ -20,7 +20,7 @@ export const personalInfo = {
   navbarAvatar: "navbar-avatar.png", // Navbar profile image (e.g. in src/assets/)
   aboutPhoto: "about-photo.png",     // About page hero photo (e.g. in src/assets/)
   email: "biniyamtaye04@gmail.com",
-  telegram: "https://t.me/Biniyam_Taye",
+  telegram: "https://t.me/Th_fatal_pursuit",
   whatsapp: "https://wa.me/+251931619083",
   phone: "+251931619083",
   github: "https://github.com/Biniyam-Taye",

@@ -106,7 +106,7 @@ export default function UsesPage() {
   return (
     <div className="w-full pt-28 sm:pt-32 pb-28 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto space-y-12">
-        
+
         {/* ── Page Header (Exact as screenshot) ── */}
         <ScrollReveal animation="fade-up" duration={700}>
           <div className="space-y-4">
@@ -121,14 +121,14 @@ export default function UsesPage() {
               className="text-sm sm:text-base leading-relaxed max-w-3xl font-sans transition-colors"
               style={{ color: 'var(--text-muted)' }}
             >
-              I'm a techie at heart and love to try out new software and gadgets to optimize my life for the things I enjoy doing. Here's a list of my current favorites. I'll try to keep this list updated as I change things up. If you have any questions about any of these, feel free to reach out on Twitter. I'm always happy to chat about this stuff 🤓.
+              I'm a techie at heart and love to try out new software and gadgets to optimize my life for the things I enjoy doing. Here's a list of my current favorites. I'll try to keep this list updated as I change things up. If you have any questions about any of these, feel free to reach out on Twitter. I'm always happy to chat about this stuff.
             </p>
           </div>
         </ScrollReveal>
 
         {/* ── Timeline Categories Container (Exact as screenshot) ── */}
         <div className="relative pl-6 sm:pl-10 pt-4">
-          
+
           {/* Continuous Vertical Purple Accent Line on Left */}
           <div
             className="absolute left-[7px] sm:left-[11px] top-6 bottom-10 w-[2px] pointer-events-none transition-colors"
@@ -136,6 +136,7 @@ export default function UsesPage() {
               backgroundColor: 'rgba(139, 92, 246, 0.4)', // subtle purple tint matching screenshots
             }}
           />
+
 
           {/* Sections List */}
           <div className="space-y-12 sm:space-y-16">
