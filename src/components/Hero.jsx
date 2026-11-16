@@ -33,10 +33,10 @@ export default function Hero() {
   return (
     <section className="relative w-full pt-24 sm:pt-32 pb-16 sm:pb-36 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           
           {/* Left Column: Heading & Bio Paragraphs with Smooth Scroll Reveals */}
-          <div ref={leftColRef} className="md:col-span-7 flex flex-col justify-start">
+          <div ref={leftColRef} className="md:col-span-7 flex flex-col justify-start self-start">
             <h1
               className="scroll-reveal opacity-0 translate-y-5 transition-all duration-700 ease-out text-3xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight font-display leading-[1.08]"
               style={{ color: 'var(--text-color)' }}
@@ -80,71 +80,73 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Rounded Photo Card & Social Links */}
-          <div className="md:col-span-5 flex flex-col items-center md:items-start md:sticky md:top-28 self-start w-full">
-            {/* Photo Card with Rounded Corners and Subtle Angle matching reference */}
-            <div className="relative group w-full max-w-[320px] sm:max-w-[360px] mx-auto md:mx-0">
-              <div
-                className="relative aspect-[4/4.5] overflow-hidden rounded-[2rem] border shadow-xl rotate-1 sm:rotate-2 group-hover:rotate-0 transition-transform duration-300"
-                style={{
-                  backgroundColor: 'var(--card-bg)',
-                  borderColor: 'var(--card-border)',
-                }}
-              >
-                <PortraitScrollAnimation alt={personalInfo.name} />
-              </div>
-
-              {/* Social Links under photo with unique interactive hover motion */}
-              <div className="mt-6 sm:mt-7 flex flex-col gap-2.5 sm:gap-3 font-sans text-sm w-full pl-0 md:pl-2">
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center justify-between p-2 rounded-xl transition-all duration-300 hover:bg-zinc-100/70 dark:hover:bg-zinc-800/60 hover:text-teal-600"
-                  style={{ color: 'var(--text-muted)' }}
+          {/* Right Column: Rounded Photo Card & Social Links (Fixed / Sticky in place while scrolling) */}
+          <div className="md:col-span-5 relative w-full">
+            <div className="sticky top-24 sm:top-28 flex flex-col items-center md:items-start w-full">
+              {/* Photo Card with Rounded Corners and Subtle Angle matching reference */}
+              <div className="relative group w-full max-w-[320px] sm:max-w-[360px] mx-auto md:mx-0">
+                <div
+                  className="relative aspect-[4/4.5] overflow-hidden rounded-[2rem] border shadow-xl rotate-1 sm:rotate-2 group-hover:rotate-0 transition-transform duration-300"
+                  style={{
+                    backgroundColor: 'var(--card-bg)',
+                    borderColor: 'var(--card-border)',
+                  }}
                 >
-                  <div className="inline-flex items-center gap-3">
-                    <Linkedin className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
-                    <span className="font-medium transition-transform duration-300 group-hover:translate-x-1" style={{ color: 'var(--text-color)' }}>
-                      Follow on LinkedIn
-                    </span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600" />
-                </a>
+                  <PortraitScrollAnimation alt={personalInfo.name} />
+                </div>
 
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group inline-flex items-center justify-between p-2 rounded-xl transition-all duration-300 hover:bg-zinc-100/70 dark:hover:bg-zinc-800/60 hover:text-teal-600"
-                  style={{ color: 'var(--text-muted)' }}
-                >
-                  <div className="inline-flex items-center gap-3">
-                    <Github className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
-                    <span className="font-medium transition-transform duration-300 group-hover:translate-x-1" style={{ color: 'var(--text-color)' }}>
-                      Follow on GitHub
-                    </span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600" />
-                </a>
-
-                {personalInfo.twitter && (
+                {/* Social Links under photo with unique interactive hover motion */}
+                <div className="mt-6 sm:mt-7 flex flex-col gap-2.5 sm:gap-3 font-sans text-sm w-full pl-0 md:pl-2">
                   <a
-                    href={personalInfo.twitter}
+                    href={personalInfo.linkedin}
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center justify-between p-2 rounded-xl transition-all duration-300 hover:bg-zinc-100/70 dark:hover:bg-zinc-800/60 hover:text-teal-600"
                     style={{ color: 'var(--text-muted)' }}
                   >
                     <div className="inline-flex items-center gap-3">
-                      <Twitter className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
+                      <Linkedin className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
                       <span className="font-medium transition-transform duration-300 group-hover:translate-x-1" style={{ color: 'var(--text-color)' }}>
-                        Follow on X (Twitter)
+                        Follow on LinkedIn
                       </span>
                     </div>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600" />
                   </a>
-                )}
+
+                  <a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center justify-between p-2 rounded-xl transition-all duration-300 hover:bg-zinc-100/70 dark:hover:bg-zinc-800/60 hover:text-teal-600"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    <div className="inline-flex items-center gap-3">
+                      <Github className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
+                      <span className="font-medium transition-transform duration-300 group-hover:translate-x-1" style={{ color: 'var(--text-color)' }}>
+                        Follow on GitHub
+                      </span>
+                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600" />
+                  </a>
+
+                  {personalInfo.twitter && (
+                    <a
+                      href={personalInfo.twitter}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group inline-flex items-center justify-between p-2 rounded-xl transition-all duration-300 hover:bg-zinc-100/70 dark:hover:bg-zinc-800/60 hover:text-teal-600"
+                      style={{ color: 'var(--text-muted)' }}
+                    >
+                      <div className="inline-flex items-center gap-3">
+                        <Twitter className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-125 group-hover:text-teal-600" />
+                        <span className="font-medium transition-transform duration-300 group-hover:translate-x-1" style={{ color: 'var(--text-color)' }}>
+                          Follow on X (Twitter)
+                        </span>
+                      </div>
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>

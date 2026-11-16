@@ -46,7 +46,7 @@
     background-color: var(--bg-color) !important;
     color: var(--text-color) !important;
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
