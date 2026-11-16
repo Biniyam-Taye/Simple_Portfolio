@@ -7,6 +7,7 @@ import PortraitScrollAnimation from './PortraitScrollAnimation';
 export default function Hero() {
   const leftColRef = useRef(null);
   const rightColRef = useRef(null);
+  const cardWrapperRef = useRef(null);
   const [fixedStyle, setFixedStyle] = useState({});
 
   // Smooth scroll-reveal effect for About Me paragraphs and sections
@@ -32,18 +33,35 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
-  // Lock Right Column (Photo Card + Social Media) in true Fixed Position on desktop
+  // Lock Right Column in Fixed Position, but smoothly push up when reaching footer
   useEffect(() => {
     const updatePosition = () => {
       if (typeof window !== 'undefined' && window.innerWidth >= 768 && rightColRef.current) {
         const rect = rightColRef.current.getBoundingClientRect();
+        const baseTop = 112; // 7rem (below top navbar)
+
+        // Measure actual card + social links height
+        const cardHeight = cardWrapperRef.current ? cardWrapperRef.current.offsetHeight : 580;
+
+        // Check footer position to prevent overlapping
+        const footer = document.querySelector('footer');
+        let translateY = 0;
+        if (footer) {
+          const footerRect = footer.getBoundingClientRect();
+          const cardBottom = baseTop + cardHeight + 28; // 28px breathing space above footer
+          if (footerRect.top < cardBottom) {
+            translateY = footerRect.top - cardBottom;
+          }
+        }
+
         setFixedStyle({
           position: 'fixed',
-          top: '7rem', // 112px from top, perfectly below fixed navbar
+          top: `${baseTop}px`,
           left: `${rect.left}px`,
           width: `${rect.width}px`,
           maxWidth: '360px',
           zIndex: 30,
+          transform: `translateY(${translateY}px)`,
         });
       } else {
         setFixedStyle({});
@@ -52,6 +70,7 @@ export default function Hero() {
 
     updatePosition();
     window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition, { passive: true });
 
     let ro;
     if (typeof ResizeObserver !== 'undefined') {
@@ -62,6 +81,7 @@ export default function Hero() {
 
     return () => {
       window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition);
       if (ro) ro.disconnect();
     };
   }, []);
@@ -119,6 +139,7 @@ export default function Hero() {
           {/* Right Column: Grid Column Placeholder + Truly Fixed Photo Card & Social Links */}
           <div ref={rightColRef} className="md:col-span-5 relative w-full md:min-h-[620px]">
             <div
+              ref={cardWrapperRef}
               style={fixedStyle}
               className="flex flex-col items-center md:items-start w-full"
             >
