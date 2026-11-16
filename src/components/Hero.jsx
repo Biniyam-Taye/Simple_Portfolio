@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { Github, Linkedin, Twitter } from './Icons';
 import { personalInfo } from '../data/portfolioData';
@@ -6,6 +6,8 @@ import PortraitScrollAnimation from './PortraitScrollAnimation';
 
 export default function Hero() {
   const leftColRef = useRef(null);
+  const rightColRef = useRef(null);
+  const [fixedStyle, setFixedStyle] = useState({});
 
   // Smooth scroll-reveal effect for About Me paragraphs and sections
   useEffect(() => {
@@ -30,8 +32,42 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
+  // Lock Right Column (Photo Card + Social Media) in true Fixed Position on desktop
+  useEffect(() => {
+    const updatePosition = () => {
+      if (typeof window !== 'undefined' && window.innerWidth >= 768 && rightColRef.current) {
+        const rect = rightColRef.current.getBoundingClientRect();
+        setFixedStyle({
+          position: 'fixed',
+          top: '7rem', // 112px from top, perfectly below fixed navbar
+          left: `${rect.left}px`,
+          width: `${rect.width}px`,
+          maxWidth: '360px',
+          zIndex: 30,
+        });
+      } else {
+        setFixedStyle({});
+      }
+    };
+
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+
+    let ro;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(updatePosition);
+      if (rightColRef.current) ro.observe(rightColRef.current);
+      if (document.body) ro.observe(document.body);
+    }
+
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      if (ro) ro.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="relative w-full pt-24 sm:pt-32 pb-16 sm:pb-36 px-4 sm:px-6">
+    <section className="relative w-full pt-24 sm:pt-32 pb-24 sm:pb-48 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
           
@@ -80,9 +116,12 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column: Rounded Photo Card & Social Links (Fixed / Sticky in place while scrolling) */}
-          <div className="md:col-span-5 relative w-full">
-            <div className="sticky top-24 sm:top-28 flex flex-col items-center md:items-start w-full">
+          {/* Right Column: Grid Column Placeholder + Truly Fixed Photo Card & Social Links */}
+          <div ref={rightColRef} className="md:col-span-5 relative w-full md:min-h-[620px]">
+            <div
+              style={fixedStyle}
+              className="flex flex-col items-center md:items-start w-full"
+            >
               {/* Photo Card with Rounded Corners and Subtle Angle matching reference */}
               <div className="relative group w-full max-w-[320px] sm:max-w-[360px] mx-auto md:mx-0">
                 <div
