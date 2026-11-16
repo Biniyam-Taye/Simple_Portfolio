@@ -516,4 +516,15 @@ export const educationSections = [
       },
     ],
   },
+  {
+    category: 'Still Learning',
+    items: [
+      {
+        name: 'AI Agent Engineering & Development',
+        badge: 'Ongoing · 2026',
+        description:
+          "Now I'm leaning more detail about ai agent enginering ai enginnering llm ai automation and i am planning to build ai agents to automate different tasks.",
+      },
+    ],
+  },
 ];
